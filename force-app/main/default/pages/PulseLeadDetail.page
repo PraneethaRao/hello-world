@@ -1,0 +1,114 @@
+<apex:page standardController="Lead" sidebar="false" showHeader="false" lightningStylesheets="true">    
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!quicksave}" id="saveButton" value="Save"/>
+            </apex:pageBlockButtons> 
+            <apex:pageMessages ></apex:pageMessages>
+            
+            <apex:pageBlockSection title="Lead and Referral Information" columns="2">
+                <apex:outputField value="{!lead.Name}"/>
+                <apex:outputField value="{!lead.MobilePhone}"/>
+                <apex:outputField value="{!lead.Phone}"/>
+                <apex:outputField value="{!lead.Email}"/>
+                <apex:outputField value="{!lead.Gender__c}"/>
+                <apex:outputField value="{!lead.Birthdate__c}"/>
+                <apex:outputField value="{!lead.Marital_Status__c}"/>
+                <apex:outputField value="{!lead.Vehicle_Vin__c}"/>
+                <apex:outputField value="{!lead.Second_Vehicle_Vin__c}"/>
+                <apex:outputField value="{!lead.Status}"/>
+                <apex:outputField value="{!lead.Unqualified_Reason__c}"/>
+                <apex:outputField value="{!lead.Velocify_Status__c}"/>
+                <apex:outputField value="{!lead.LeadSource}"/>
+                <apex:outputField value="{!lead.FinServ__ExpressedInterest__c}"/>
+                <apex:outputField value="{!lead.Policy_Type__c}"/>
+                <apex:inputField value="{!lead.Owner.Name}"/>
+            </apex:pageBlockSection>     
+            <apex:pageBlockSection title="Additional Contact" columns="2">
+                <apex:outputField value="{!lead.Addtl_Contact_First_Name__c}"/>
+                <apex:outputField value="{!lead.Addtl_Contact_Last_Name__c}"/>
+                <apex:outputField value="{!lead.Addtl_Contact_Phone__c}"/>
+                <apex:outputField value="{!lead.Addtl_Contact_Email__c}"/>
+                <apex:outputField value="{!lead.Addtl_Contact_Gender__c}"/>
+                <apex:outputField value="{!lead.Addtl_Contact_Birthdate__c}"/>
+                <apex:outputField value="{!lead.Addtl_Contact_Marital_Status__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Policy Details" columns="2">
+                <apex:outputField value="{!lead.Target_Effective_Date__c}"/>
+                <apex:outputField value="{!lead.Target_Expiration_Date__c}"/>
+                <apex:outputField value="{!lead.Currently_Insured__c}"/>
+                <apex:outputField value="{!lead.Current_Premium__c}"/>
+                <apex:outputField value="{!lead.Current_Carrier__c}"/>
+                <apex:outputField value="{!lead.Current_Agency__c}"/>
+                <apex:outputField value="{!lead.Current_Broker__c}"/>
+                <apex:outputField value="{!lead.BOR__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Auto Details" columns="2">
+                <apex:outputField value="{!lead.Vehicle_Year__c}"/>
+                <apex:outputField value="{!lead.Vehicle_Make__c}"/>
+                <apex:outputField value="{!lead.Vehicle_Model__c}"/>
+                <apex:outputField value="{!lead.Vehicle_Trim__c}"/>
+                <apex:outputField value="{!lead.Own_or_Rent_Vehicle__c}"/>
+                <apex:outputField value="{!lead.Homeowner__c}"/>
+                <apex:outputField value="{!lead.Former_Carrier__c}"/>
+                <apex:outputField value="{!lead.Length_of_Insurance__c}"/>
+                <apex:outputField value="{!lead.Second_Vehicle_Year__c}"/>
+                <apex:outputField value="{!lead.Second_Vehicle_Make__c}"/>
+                <apex:outputField value="{!lead.Second_Vehicle_Model__c}"/>
+                <apex:outputField value="{!lead.Second_Vehicle_Trim__c}"/>
+                <apex:outputField value="{!lead.DUI__c}"/>
+                <apex:outputField value="{!lead.Two_or_More_Tickets__c}"/>
+                <apex:outputField value="{!lead.At_Fault_Accident__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Dwelling Details" columns="2">
+                <apex:outputField value="{!lead.Dwelling_Usage__c}"/>
+                <apex:outputField value="{!lead.Own_or_Rent_Home__c}"/>
+                <apex:outputField value="{!lead.Purchase_Date__c}"/>
+                <apex:outputField value="{!lead.Purchase_Price__c}"/>
+                <apex:outputField value="{!lead.Estimate_Market_Value__c}"/>
+                <apex:outputField value="{!lead.Personal_Property_Cost__c}"/>
+                <apex:outputField value="{!lead.Street}"/>
+                <apex:outputField value="{!lead.City}"/>
+                <apex:outputField value="{!lead.State}"/>
+                <apex:outputField value="{!lead.PostalCode}"/>
+                <apex:outputField value="{!lead.Dwelling_Type__c}"/>
+                <apex:outputField value="{!lead.Dwelling_Under_Construction__c}"/>
+                <apex:outputField value="{!lead.Year_Built__c}"/>
+                <apex:outputField value="{!lead.Square_Footage__c}"/>
+                <apex:outputField value="{!lead.Stories__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Lead Cloud" columns="2">
+                <apex:outputField value="{!lead.Campaign__c}"/>
+                <!--<apex:outputField value="{!lead.Provider__c}"/>
+                <apex:outputField value="{!lead.Channel__c}"/>-->
+                <apex:outputField value="{!lead.Type__c}"/>
+                <apex:outputField value="{!lead.Purpose__c}"/>
+                <apex:outputField value="{!lead.AP_Trusted_Form_Certificate__c}"/>
+                <apex:outputField value="{!lead.AP_Outcome__c}"/>
+                <apex:outputField value="{!lead.AP_Reason__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="System Information" columns="2">
+                <apex:outputField value="{!lead.RecordType.Name}"/>
+                <apex:outputField value="{!lead.CreatedBy.Name}"/>
+                <apex:outputField value="{!lead.Lead_Status_Changed__c}"/>
+                <apex:outputField value="{!lead.Created_by_Lead_Cloud__c}"/>
+                <apex:outputField value="{!lead.First_Owner__c}"/>
+                <apex:outputField value="{!lead.First_Assigned_Date__c}"/>
+                <apex:outputField value="{!lead.Owner_Assigned_Date__c}"/>
+                <apex:outputField value="{!lead.LastModifiedBy.Name}"/>
+                <apex:outputField value="{!lead.LastTransferDate}"/>
+            </apex:pageBlockSection>     
+            <apex:inlineEditSupport showOnEdit="saveButton" event="ondblclick" resetFunction="resetInlineEdit"/>
+
+            <!--<apex:pageBlockButtons > 
+                <apex:commandButton value="Edit" action="{!save}" id="editButton" />
+                <apex:commandButton value="Save" action="{!save}" id="saveButton" />
+                <apex:commandButton value="Cancel" action="{!cancel}" id="cancelButton" />
+            </apex:pageBlockButtons>      -->       
+        </apex:pageBlock>
+    </apex:form>
+    
+    
+</apex:page>

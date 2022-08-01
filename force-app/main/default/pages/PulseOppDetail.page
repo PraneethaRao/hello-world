@@ -1,0 +1,55 @@
+<apex:page standardController="Opportunity" sidebar="false" showHeader="false" lightningStylesheets="true">    
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!quicksave}" id="saveButton" value="Save"/>
+            </apex:pageBlockButtons> 
+            
+            <apex:pageBlockSection title="Opportunity Information" columns="2">
+                <apex:outputField value="{!opportunity.Owner.Name}"/>
+                <apex:outputField value="{!opportunity.Name}"/>
+                <apex:outputField value="{!opportunity.Account.Name}"/>
+                <apex:outputField value="{!opportunity.Co_Applicant__r.Name}"/>
+                <apex:outputField value="{!opportunity.Type}"/>
+                <apex:outputField value="{!opportunity.LeadSource}"/>
+                <apex:outputField value="{!opportunity.Line_of_Business__c}"/>
+                <apex:outputField value="{!opportunity.CloseDate}"/>
+                <apex:outputField value="{!opportunity.StageName}"/>
+                <apex:outputField value="{!opportunity.Velocify_Status__c}"/>
+                <apex:outputField value="{!opportunity.Loss_Reason__c}"/>
+            </apex:pageBlockSection>            
+            <apex:pageBlockSection title="Additional Information" columns="2">
+                <apex:outputField value="{!opportunity.Policy_Effective_Date__c}"/>
+                <apex:outputField value="{!opportunity.BOR__c}"/>
+                <apex:outputField value="{!opportunity.Lead_Expressed_Interest__c}"/>
+                <apex:outputField value="{!opportunity.Policy_Type__c}"/>
+                <apex:outputField value="{!opportunity.Homeowner_del__c}"/>
+                <apex:outputField value="{!opportunity.Total_Quotes__c}"/>
+                <apex:outputField value="{!opportunity.Currently_Insured__c}"/>
+                <apex:outputField value="{!opportunity.Former_Carrier__c}"/>
+                <apex:outputField value="{!opportunity.Current_Carrier__c}"/>
+                <apex:outputField value="{!opportunity.Current_Agency__c}"/>
+                <apex:outputField value="{!opportunity.Current_Broker__c}"/>
+                <apex:outputField value="{!opportunity.Current_Premium__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Lead Cloud" columns="2">
+                <apex:outputField value="{!opportunity.Provider__c}"/>
+                <apex:outputField value="{!opportunity.Channel__c}"/>
+                <apex:outputField value="{!opportunity.Provider__c}"/>
+                <apex:outputField value="{!opportunity.Lead_Type__c}"/>
+                <apex:outputField value="{!opportunity.Purpose__c}"/>
+                <apex:outputField value="{!opportunity.Campaign__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="System Information" columns="2">
+                <apex:outputField value="{!opportunity.CreatedBy.Name}"/>
+                <apex:outputField value="{!opportunity.RecordType.Name}"/>
+                <apex:outputField value="{!opportunity.LastModifiedBy.Name}"/>
+                <apex:outputField value="{!opportunity.FinServ__Household__c}"/>
+            </apex:pageBlockSection>
+            <apex:inlineEditSupport showOnEdit="saveButton" event="ondblclick" resetFunction="resetInlineEdit"/>
+            
+        </apex:pageBlock>
+    </apex:form>
+    
+    
+</apex:page>

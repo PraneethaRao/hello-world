@@ -1,0 +1,114 @@
+<aura:component  controller="BaldwinEnrichmentController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader" access="global" >
+	 <aura:handler name="init" value="{! this}" action="{!c.doInit}" />
+     <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="visible" type="Boolean" default="false"/>
+        <aura:attribute name="displayMessage" type="Boolean" default="false"/>
+    
+  
+  
+    <!--<aura:handler event="force:refreshView" action="{!c.refresh}" />-->
+    
+                 
+     <!-- <div class="slds-border_left slds-border_right slds-border_bottom slds-border_top" style="background-color: #FFFBF7">
+    <lightning:card>          <div class="slds-box">   -->
+     <aura:if isTrue="{!!v.visible}">
+    <lightning:spinner alternativeText="Loading" size="small" />
+    </aura:if>
+   <aura:if isTrue="{!v.visible}">
+     <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Lead">
+  
+    <lightning:card>
+         <Center>
+            <lightning:button variant="brand" label="Refresh Home Data" onclick="{!c.refresh}" />
+              <lightning:button variant="brand" label="Enrich Home Data" onclick="{!c.enrich}" />
+                    <br/><br/><b><div style="color:blue">
+                                                 Please ensure to enrich data before converting the lead!
+                 </div></b>
+              </Center>
+       
+        <br/>
+
+                            <p class="slds-p-horizontal_small"  style="margin: 25px 25px 25px 100px;">
+                                <div class="slds-grid slds-wrap">
+                                    
+          
+
+                                    <div class="slds-col slds-size_6-of-12">
+                                              <B >
+                                                         <lightning:outputField fieldName="Is_enriched__c" aura:id="enrichId"/>
+                                               	
+                                                   </B>
+                                                </div>
+                                               
+                                    
+                                     <div class="slds-col slds-size_6-of-12">
+                                            <lightning:outputField fieldName="Address"/>
+                                                </div>
+                                       
+                                    <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:outputField  fieldName="Dwelling_Type__c"/>
+                                                </div>
+
+                                         <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:outputField  fieldName="Year_Built__c"/>
+                                                </div>
+                                    
+                                         <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:outputField  fieldName="No_of_stories__c"/>
+                                                </div>
+                                    
+                                         <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:outputField  fieldName="Heating_Type__c" aura:id="htype"/>
+                                                </div>
+                                    <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:outputField  fieldName="Full_Baths__c"/>
+                                                </div>
+                                    <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:outputField fieldName="Half_Baths__c"/>
+                                                </div>
+                                      <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:outputField fieldName="Foundation_Type__c"/>
+                                                </div>
+                                               <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:outputField fieldName="Construction_Type__c"/>
+                                                </div>
+                                       
+                                                <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:outputField fieldName="Swimming_Pool_Type__c"/>
+                                                </div>
+                                    
+                                       <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:outputField fieldName="Square_Footage__c"/>
+                                                </div>
+                                     <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:outputField fieldName="Roof_Design__c"/>
+                                                </div>
+                                     <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:outputField fieldName="Roof_Type__c"/>
+                                                </div>
+                                      <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:outputField fieldName="Structure_Type__c"/>
+                                                </div>
+                                    
+                                </div>
+        </p>
+
+    </lightning:card>
+       
+           </lightning:recordViewForm>    
+    </aura:if>  
+
+</aura:component>

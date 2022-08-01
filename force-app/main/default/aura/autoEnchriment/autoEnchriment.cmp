@@ -1,0 +1,86 @@
+<aura:component controller="BaldwinEnrichmentController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    	 <aura:handler name="init" value="{! this}" action="{!c.doInit}" />
+     <aura:attribute name="recordId" type="Id" />
+     <aura:attribute name="v.visible" type="Boolean" default="false"/>
+    
+    
+    <!-- <aura:if isTrue="{!!v.visible}">
+    <lightning:spinner alternativeText="Loading" size="small" />
+    </aura:if>-->
+    
+       <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Lead" onsuccess="{!c.callSuccess}">
+        <lightning:messages />
+           <lightning:card>
+               <Center>
+                       <lightning:button variant="brand" type="submit" name="update" label="Enrich Auto Data"/>
+                    <br/><br/><b><div style="color:blue">
+                                                 Please ensure to enrich data before converting the lead!
+                 </div></b>
+               </Center>
+               
+
+                            <p class="slds-p-horizontal_small"  style="margin: 25px 25px 25px 100px;">
+                                <div class="slds-grid slds-wrap">
+     
+                                    <div class="slds-col slds-size_12-of-12">
+                                        <B >      <lightning:inputField fieldName="Is_auto_data_enriched__c" /> </B>
+                                    </div>
+                                    
+                                      <div class="slds-col slds-size_6-of-12">
+        <lightning:inputField fieldName="Vehicle_Vin__c" required="true" />
+                                    </div>
+                                      <div class="slds-col slds-size_6-of-12">
+        <lightning:inputField fieldName="Second_Vehicle_Vin__c" />
+                                    </div>
+                              </div>
+               </p>      
+
+           </lightning:card>
+    </lightning:recordEditForm>
+    
+    
+    
+ <!--  <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Lead" aura:id="ldform" onsuccess="{!callSuccess}">
+  <lightning:messages />
+    <lightning:card>
+         <Center>
+            <lightning:button variant="brand" label="Refresh Auto Data" onclick="{!c.refresh}" />
+              <lightning:button variant="brand" label="Enrich Auto Data" name="enrich" type="submit"/>
+                    <br/><br/><b><div style="color:blue">
+                                                 Please ensure to enrich data before converting the lead!
+                 </div></b>
+              </Center>
+       
+        <br/>
+
+                            <p class="slds-p-horizontal_small"  style="margin: 25px 25px 25px 100px;">
+                                <div class="slds-grid slds-wrap">
+                                    
+          
+
+                                    <div class="slds-col slds-size_12-of-12">
+                                              <B >
+                                                         <lightning:outputField fieldName="Is_auto_data_enriched__c" aura:id="enrichId"/>
+                                               	
+                                                   </B>
+                                                </div>
+                                               
+                                    
+                                     <div class="slds-col slds-size_6-of-12">
+                                            <lightning:inputfield fieldName="Vehicle_Vin__c"/>
+                                                </div>
+                                       
+                                    <div class="slds-col slds-size_6-of-12">
+                                                    
+                                                         <lightning:inputfield  fieldName="Second_Vehicle_Vin__c"/>
+                                                </div>
+									      
+                   
+                                </div>
+        </p>
+
+    </lightning:card>
+       
+    </lightning:recordEditForm> -->
+	
+</aura:component>

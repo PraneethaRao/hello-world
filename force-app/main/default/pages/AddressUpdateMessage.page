@@ -1,0 +1,5 @@
+<apex:page standardController="Lead">
+    <font size="3" color="black">
+    <b> Please use the “Change Address” button located at top right of the screen to modify the address on the lead.</b>
+    </font>
+</apex:page>
